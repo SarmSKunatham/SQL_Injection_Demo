@@ -3,12 +3,12 @@ import { NextRequest, NextResponse } from "next/server";
 import { z } from "zod";
 
 export const POST = async (req: NextRequest) => {
-  const response = await z
+  const response = z
     .object({
       username: z.string(),
       password: z.string(),
     })
-    .safeParseAsync(req.json());
+    .safeParse(await req.json());
 
   if (!response.success) {
     return NextResponse.json({ error: response.error }, { status: 400 });
