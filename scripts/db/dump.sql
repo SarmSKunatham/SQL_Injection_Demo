@@ -40,6 +40,21 @@ INSERT INTO
 VALUES
     ('Product 5', 500.00);
 
+INSERT INTO
+    products (name, price)
+VALUES
+    ('Different Product 1', 100.00);
+
+INSERT INTO
+    products (name, price)
+VALUES
+    ('Different Product 2', 200.00);
+
+INSERT INTO
+    products (name, price)
+VALUES
+    ('Different Product 3', 300.00);
+
 -- Seed some data on users
 INSERT INTO
     users (username, password)
