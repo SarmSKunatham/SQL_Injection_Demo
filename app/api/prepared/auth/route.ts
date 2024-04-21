@@ -16,10 +16,14 @@ export const POST = async (req: NextRequest) => {
 
   const { username, password } = response.data;
 
+  console.log(
+    `Attempted login with username: ${username} and password: ${password}`
+  );
+
   try {
-    const userData = await sql.unsafe(
-      `SELECT * FROM users WHERE username = '${username}' AND password = '${password}'`
-    );
+    const userData =
+      await sql`SELECT * FROM users WHERE username = ${username} AND password = ${password}`;
+
     if (userData.length === 0) {
       return NextResponse.json(
         {

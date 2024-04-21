@@ -24,7 +24,7 @@ export const POST = async (req: NextRequest) => {
     const userData = await sql.unsafe(
       `SELECT * FROM users WHERE username = '${username}' AND password = '${password}'`
     );
-    console.log(userData);
+
     if (userData.length === 0) {
       return NextResponse.json(
         {
