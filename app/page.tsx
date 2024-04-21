@@ -17,7 +17,7 @@ export default function Home() {
           </Link>
           <Link
             className="text-lg w-48 border-2 border-white h-10 flex items-center justify-center rounded-full hover:bg-white/25 transition-colors duration-200"
-            href="/product"
+            href="/product-search"
           >
             Search Product
           </Link>
