@@ -21,8 +21,12 @@ export const POST = async (req: NextRequest) => {
   );
 
   try {
-    const userData =
-      await sql`SELECT * FROM users WHERE username = ${username} AND password = ${password}`;
+    const [userData, queryStatement] = await Promise.all([
+      sql`SELECT * FROM users WHERE username = ${username} AND password = ${password}`,
+      sql`SELECT * FROM users WHERE username = ${username} AND password = ${password}`.describe(),
+    ]);
+
+    console.log(queryStatement);
 
     if (userData.length === 0) {
       return NextResponse.json(

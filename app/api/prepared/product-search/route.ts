@@ -11,8 +11,12 @@ export const GET = async (req: NextRequest) => {
     return NextResponse.json(products);
   }
 
-  const products =
-    await sql`SELECT * FROM products WHERE name ILIKE '%' || ${query} || '%' LIMIT 10`;
+  const [products, queryStatement] = await Promise.all([
+    sql`SELECT * FROM products WHERE name ILIKE '%' || ${query} || '%' LIMIT 10`,
+    sql`SELECT * FROM products WHERE name ILIKE '%' || ${query} || '%' LIMIT 10`.describe(),
+  ]);
+
+  console.log(queryStatement);
 
   return NextResponse.json(products);
 };
