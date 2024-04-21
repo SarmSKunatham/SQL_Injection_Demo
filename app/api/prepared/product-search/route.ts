@@ -12,7 +12,7 @@ export const GET = async (req: NextRequest) => {
   }
 
   const products =
-    await sql`SELECT * FROM products WHERE name ILIKE ${query} LIMIT 10`;
+    await sql`SELECT * FROM products WHERE name ILIKE '%' || ${query} || '%' LIMIT 10`;
 
-  return { products };
+  return NextResponse.json(products);
 };
