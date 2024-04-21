@@ -74,7 +74,6 @@ const Login = () => {
 	return (
 		<section className='w-full h-[100vh] flex flex-col items-center justify-center'>
 			<div className='w-[80vw] h-[50vh] rounded-xl bg-slate-600/25 shadow-lg border-2 border-slate-300 backdrop-blur-md text-center flex flex-col justify-center items-center space-y-8'>
-				<h1 className='text-3xl font-bold'>Login (unsafe)</h1>
 				<form onSubmit={handleSubmit} className='w-full px-20'>
 					<input
 						className='text-black text-lg w-full p-4 mb-4 rounded bg-transparent'
