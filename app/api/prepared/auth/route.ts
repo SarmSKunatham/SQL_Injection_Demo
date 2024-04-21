@@ -16,10 +16,18 @@ export const POST = async (req: NextRequest) => {
 
   const { username, password } = response.data;
 
+  console.log(
+    `Attempted login with username: ${username} and password: ${password}`
+  );
+
   try {
-    const userData = await sql.unsafe(
-      `SELECT * FROM users WHERE username = '${username}' AND password = '${password}'`
-    );
+    const [userData, queryStatement] = await Promise.all([
+      sql`SELECT * FROM users WHERE username = ${username} AND password = ${password}`,
+      sql`SELECT * FROM users WHERE username = ${username} AND password = ${password}`.describe(),
+    ]);
+
+    console.log(queryStatement);
+
     if (userData.length === 0) {
       return NextResponse.json(
         {
