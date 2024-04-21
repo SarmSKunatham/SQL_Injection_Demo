@@ -8,7 +8,7 @@ const Product = () => {
   const { data, isLoading, error, mutate } = useSWR(
     "/api/products",
     async () => {
-      const url = new URL("/api/raw/product-search", window.origin);
+      const url = new URL("/api/prepared/product-search", window.origin);
       const searchParams = new URLSearchParams();
       if (query) {
         searchParams.set("query", encodeURIComponent(query));
