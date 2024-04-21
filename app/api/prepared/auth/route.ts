@@ -17,7 +17,17 @@ export const POST = async (req: NextRequest) => {
   const { username, password } = response.data;
 
   try {
-    await sql`SELECT * FROM users WHERE username = ${username} AND password = ${password}`;
+    const userData = await sql.unsafe(
+      `SELECT * FROM users WHERE username = ${username} AND password = ${password}`
+    );
+    if (userData.length === 0) {
+      return NextResponse.json(
+        {
+          error: "Unable to login, username or password not found",
+        },
+        { status: 401 }
+      );
+    }
     return NextResponse.json({ success: true });
   } catch (e: any) {
     console.log(
