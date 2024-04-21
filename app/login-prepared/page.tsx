@@ -77,13 +77,13 @@ const LoginPrepared = () => {
 				<h1 className='text-3xl font-bold'>Login</h1>
 				<form onSubmit={handleSubmit} className='w-full px-20'>
 					<input
-						className='text-black text-lg w-full p-4 mb-4 rounded bg-transparent'
+						className='text-black text-lg w-full p-4 mb-4 rounded'
 						type='text'
 						name='username'
 						placeholder='Username'
 					/>
 					<input
-						className='text-black text-lg w-full p-4 rounded bg-none'
+						className='text-black text-lg w-full p-4 rounded'
 						type='password'
 						name='password'
 						placeholder='Password'
