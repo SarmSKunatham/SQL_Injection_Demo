@@ -18,7 +18,7 @@ export const POST = async (req: NextRequest) => {
 
   try {
     const userData = await sql.unsafe(
-      `SELECT * FROM users WHERE username = ${username} AND password = ${password}`
+      `SELECT * FROM users WHERE username = '${username}' AND password = '${password}'`
     );
     if (userData.length === 0) {
       return NextResponse.json(
@@ -30,12 +30,7 @@ export const POST = async (req: NextRequest) => {
     }
     return NextResponse.json({ success: true });
   } catch (e: any) {
-    console.log(
-      `Attempted login with username: ${username} and password: ${password}`
-    );
-    return NextResponse.json(
-      { error: "Unable to login, username or password not found" },
-      { status: 401 }
-    );
+    console.error(e);
+    return NextResponse.json({ error: (e as Error).name }, { status: 500 });
   }
 };

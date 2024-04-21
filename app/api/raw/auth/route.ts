@@ -16,10 +16,15 @@ export const POST = async (req: NextRequest) => {
 
   const { username, password } = response.data;
 
+  console.log(
+    `Attempted login with username: ${username} and password: ${password}`
+  );
+
   try {
     const userData = await sql.unsafe(
-      `SELECT * FROM users WHERE username = ${username} AND password = ${password}`
+      `SELECT * FROM users WHERE username = '${username}' AND password = '${password}'`
     );
+    console.log(userData);
     if (userData.length === 0) {
       return NextResponse.json(
         {
@@ -30,9 +35,6 @@ export const POST = async (req: NextRequest) => {
     }
     return NextResponse.json({ success: true });
   } catch (e: any) {
-    console.log(
-      `Attempted login with username: ${username} and password: ${password}`
-    );
     console.error(e);
     return NextResponse.json({ error: (e as Error).name }, { status: 500 });
   }
