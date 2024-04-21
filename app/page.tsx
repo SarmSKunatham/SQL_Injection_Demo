@@ -10,26 +10,26 @@ export default function Home() {
 				</div>
 				<div className='space-y-4'>
 					<Link
-						className='text-lg w-48 border-2 border-white h-10 flex items-center justify-center rounded-full hover:bg-white/25 transition-colors duration-200'
+						className='text-lg w-60 border-2 border-white h-10 flex items-center justify-center rounded-full hover:bg-white/25 transition-colors duration-200'
 						href='/login-prepared'
 					>
 						Login
 					</Link>
 					<Link
-						className='text-lg w-48 border-2 border-white h-10 flex items-center justify-center rounded-full hover:bg-white/25 transition-colors duration-200'
+						className='text-lg w-60 border-2 border-white h-10 flex items-center justify-center rounded-full hover:bg-white/25 transition-colors duration-200'
 						href='/login'
 					>
 						Login (unsafe)
 					</Link>
 
 					<Link
-						className='text-lg w-48 border-2 border-white h-10 flex items-center justify-center rounded-full hover:bg-white/25 transition-colors duration-200'
+						className='text-lg w-60 border-2 border-white h-10 flex items-center justify-center rounded-full hover:bg-white/25 transition-colors duration-200'
 						href='/product'
 					>
 						Search Product
 					</Link>
 					<Link
-						className='text-lg w-48 border-2 border-white h-10 flex items-center justify-center rounded-full hover:bg-white/25 transition-colors duration-200'
+						className='text-lg w-60 border-2 border-white h-10 flex items-center justify-center rounded-full hover:bg-white/25 transition-colors duration-200'
 						href='/product'
 					>
 						Search Product (unsafe)
