@@ -8,32 +8,36 @@ export default function Home() {
 					<h1 className='text-3xl font-bold'>SQL Injection Demo</h1>
 					<p className='text-xl'>System Security Project</p>
 				</div>
-				<div className='space-y-4'>
-					<Link
-						className='text-lg w-60 border-2 border-white h-10 flex items-center justify-center rounded-full hover:bg-white/25 transition-colors duration-200'
-						href='/login-prepared'
-					>
-						Login
-					</Link>
-					<Link
-						className='text-lg w-60 border-2 border-white h-10 flex items-center justify-center rounded-full hover:bg-white/25 transition-colors duration-200'
-						href='/login'
-					>
-						Login (unsafe)
-					</Link>
+				<div className='flex space-x-12'>
+					<div className='space-y-4'>
+						<Link
+							className='text-lg w-60 border-2 border-white h-10 flex items-center justify-center rounded-full hover:bg-white/25 transition-colors duration-200'
+							href='/login-prepared'
+						>
+							Login
+						</Link>
+						<Link
+							className='text-lg w-60 border-2 border-white h-10 flex items-center justify-center rounded-full hover:bg-white/25 transition-colors duration-200'
+							href='/login'
+						>
+							Login (unsafe)
+						</Link>
+					</div>
 
-					<Link
-						className='text-lg w-60 border-2 border-white h-10 flex items-center justify-center rounded-full hover:bg-white/25 transition-colors duration-200'
-						href='/product'
-					>
-						Search Product
-					</Link>
-					<Link
-						className='text-lg w-60 border-2 border-white h-10 flex items-center justify-center rounded-full hover:bg-white/25 transition-colors duration-200'
-						href='/product'
-					>
-						Search Product (unsafe)
-					</Link>
+					<div className='space-y-4'>
+						<Link
+							className='text-lg w-60 border-2 border-white h-10 flex items-center justify-center rounded-full hover:bg-white/25 transition-colors duration-200'
+							href='/product'
+						>
+							Search Product
+						</Link>
+						<Link
+							className='text-lg w-60 border-2 border-white h-10 flex items-center justify-center rounded-full hover:bg-white/25 transition-colors duration-200'
+							href='/product'
+						>
+							Search Product (unsafe)
+						</Link>
+					</div>
 				</div>
 			</div>
 		</main>
