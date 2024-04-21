@@ -3,7 +3,7 @@ import Link from 'next/link';
 import React from 'react';
 import { toast } from 'react-toastify';
 
-const Login = () => {
+const LoginPrepared = () => {
 	async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
 		event.preventDefault();
 		const formData = new FormData(event.currentTarget);
@@ -23,7 +23,7 @@ const Login = () => {
 			theme: 'dark',
 		});
 		try {
-			const response = await fetch('/api/raw/auth', {
+			const response = await fetch('/api/prepared/auth', {
 				method: 'POST',
 				headers: {
 					'Content-Type': 'application/json',
@@ -74,7 +74,7 @@ const Login = () => {
 	return (
 		<section className='w-full h-[100vh] flex flex-col items-center justify-center'>
 			<div className='w-[80vw] h-[50vh] rounded-xl bg-slate-600/25 shadow-lg border-2 border-slate-300 backdrop-blur-md text-center flex flex-col justify-center items-center space-y-8'>
-				<h1 className='text-3xl font-bold'>Login (unsafe)</h1>
+				<h1 className='text-3xl font-bold'>Login</h1>
 				<form onSubmit={handleSubmit} className='w-full px-20'>
 					<input
 						className='text-black text-lg w-full p-4 mb-4 rounded bg-transparent'
@@ -108,4 +108,4 @@ const Login = () => {
 	);
 };
 
-export default Login;
+export default LoginPrepared;
