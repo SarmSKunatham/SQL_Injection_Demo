@@ -7,15 +7,16 @@ export const GET = async (req: NextRequest) => {
   const query = searchParams.get("query");
 
   if (!query) {
-    const products = await sql`SELECT * FROM products LIMIT 10`;
+    const products =
+      await sql`SELECT name, cast(price as varchar) FROM products LIMIT 10`;
     return NextResponse.json(products);
   }
 
   const [products, queryStatement] = await Promise.all([
-    sql`SELECT * FROM products WHERE name ILIKE '%' || ${decodeURIComponent(
+    sql`SELECT name, cast(price as varchar) FROM products WHERE name ILIKE '%' || ${decodeURIComponent(
       query
     )} || '%' LIMIT 10`,
-    sql`SELECT * FROM products WHERE name ILIKE '%' || ${decodeURIComponent(
+    sql`SELECT name, cast(price as varchar) FROM products WHERE name ILIKE '%' || ${decodeURIComponent(
       query
     )} || '%' LIMIT 10`.describe(),
   ]);

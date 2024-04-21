@@ -51,7 +51,7 @@ const Product = () => {
 						</button>
 					</div>
 				</div>
-
+				{data && data.length === 0 && <div>No products found</div>}
 				{data && data.length > 0 && (
 					<table className='table-fixed border-collapse border border-slate-500 w-3/4'>
 						<thead>
