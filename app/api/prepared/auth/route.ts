@@ -26,7 +26,7 @@ export const POST = async (req: NextRequest) => {
       sql`SELECT * FROM users WHERE username = ${username} AND password = ${password}`.describe(),
     ]);
 
-    console.log(queryStatement);
+    console.log(`SQL Script (Safe): ${queryStatement.string}`);
 
     if (userData.length === 0) {
       return NextResponse.json(

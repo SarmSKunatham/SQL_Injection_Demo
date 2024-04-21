@@ -15,7 +15,9 @@ export const GET = async (req: NextRequest) => {
 
     const decodedQuery = decodeURIComponent(query);
 
-    console.log(decodedQuery);
+    console.log(
+      `SQL Script (Unsafe): SELECT name, cast(price as varchar) FROM products WHERE name ILIKE '%' || ${decodedQuery} || '%' LIMIT 10`
+    );
 
     const products = await sql.unsafe(
       `SELECT name, cast(price as varchar) FROM products WHERE name ILIKE '%' || ${decodedQuery} || '%' LIMIT 10`

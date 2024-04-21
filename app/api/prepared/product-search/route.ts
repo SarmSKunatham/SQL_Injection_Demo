@@ -21,7 +21,7 @@ export const GET = async (req: NextRequest) => {
     )} || '%' LIMIT 10`.describe(),
   ]);
 
-  console.log(queryStatement);
+  console.log(`SQL Script (Safe): ${queryStatement.string}`);
 
   return NextResponse.json(products);
 };
